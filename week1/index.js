@@ -39,7 +39,9 @@ function groupBy(property) {
 };
 
 const genderGroup = groupBy('gender')
-console.log(genderGroup);
+console.log("male:", genderGroup.male.length);
+console.log("female:", genderGroup.female.length);
+
 
 // Student Name
 const nameList = students.map(student => student.name);
