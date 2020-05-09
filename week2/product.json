@@ -1,0 +1,16 @@
+{
+    "products":[
+        {
+            "id": "0001",
+            "product_name": "iphoneX",
+            "product_price": "30,000,000 VND",
+            "update_time": "Cập nhật cách đây 3 ngày"
+        },
+        {
+            "id": "0002",
+            "product_name": "Samsung S9",
+            "product_price": "25,000,000 VND",
+            "update_time": "Cập nhật cách đây 12 ngày"
+        }
+    ] 
+}
