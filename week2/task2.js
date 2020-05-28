@@ -1,15 +1,16 @@
 const fs = require("fs");
-const formatDistance = require('date-fns/formatDistance');
 const vi = require("date-fns/locale/vi/index");
+const formatDistance = require('date-fns/formatDistance');
 
-var result = [];
-fs.readFile("./product.json", (err, data) => {
-    if (err) {
-        console.log("error:", err);
-    }
-    result = [...JSON.parse(data)];
-    console.log(result);
-    result.forEach(elm => {
+const readData = new Promise((resolve, reject) => {
+    fs.readFile("./product.json", (err, data) => {
+        if (err) {
+            reject(err);
+        }
+        resolve(JSON.parse(data));
+    })
+})
+readData.then(result => {result.forEach(elm => {
         const realDate = parseDate(elm.dateUpdated);
         elm["fromNow"] = formatDistance(realDate, new Date(), { locale: vi });
         console.log(`${elm.id} - ${elm.name} - ${formatNumWithCommas(elm.price)}VND - Cập nhật cách đây: ${elm.fromNow}`)
