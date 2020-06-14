@@ -9,16 +9,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Cards</title>
+    <title>SB Admin 2 - Tables</title>
 
-    <!-- Custom fonts for this template-->
+    <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!-- Custom styles for this template-->
+    <!-- Custom styles for this template -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -47,7 +50,6 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -66,7 +68,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
+                        <a class="collapse-item" href="/login">Login</a>
                         <a class="collapse-item" href="register.html">Register</a>
                         <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                         <div class="collapse-divider"></div>
@@ -76,18 +78,18 @@
                     </div>
                 </div>
             </li>
-            
+
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="/products">
-                    <i class="fas fa-fw fa-table"></i>
+                <a class="nav-link" href="/product">
+                    <i class="fas fa-tshirt"></i>
                     <span>Products</span></a>
             </li>
 
-               <!-- Nav Item - Tables -->
+            <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="/users">
-                    <i class="fas fa-fw fa-table"></i>
+                <a class="nav-link" href="/user">
+                    <i class="fas fa-user"></i>
                     <span>Users</span></a>
             </li>
 
@@ -316,29 +318,53 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Products</h1>
-                    </div>
+                    <h1 class="h3 mb-2 text-gray-800">Users</h1>
 
-                    <div class="row">
-                        {{#each products}}
-                        <div class="col-lg-4">
-                            <!-- Basic Card Example -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">{{name}}</h6>
-                                </div>
-                                <div class="card-body">
-                                    <img src={{{image}}} alt="product image" />
-                                    <p>{{shortDescription}}</p>
-                                    <strong>${{salePrice}}</strong>
-                                    <strike>${{originalPrice}}</strike>
-                                </div>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">User Table</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Avatar</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>DOB</th>
+                                            <th>Gender</th>
+                                            <th>Country</th>
+                                            <th>Phone Number</th>
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each users}}
+                                            <tr>
+                                                <td>
+                                                    <img src={{{avatar}}} alt="avatar" width="50" height="50" />
+                                                </td>
+                                                <td>{{firstName}}</td>
+                                                <td>{{lastName}}</td>
+                                                <td>{{dob}}</td>
+                                                <td>{{gender}}</td>
+                                                <td>{{country}}</td>
+                                                <td>{{phoneNumber}}</td>
+                                                <td>{{username}}</td>
+                                                <td>{{email}}</td>
+                                            </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        {{/each}}
                     </div>
+
                 </div>
+                <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
@@ -378,7 +404,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="/login">Logout</a>
                 </div>
             </div>
         </div>
@@ -393,6 +419,13 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 

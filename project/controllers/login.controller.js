@@ -1,3 +1,3 @@
 module.exports.getLoginForm = (req, res) => {
-    res.render('login')
+    res.render('authen/login')
 }
