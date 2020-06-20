@@ -1,15 +1,21 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+require('dotenv').config();
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const mongoose = require('mongoose');
 
-var app = express();
+mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true})
+const app = express();
 
 const indexRouter = require('./routes/index.router.js');
 const usersRouter = require('./routes/user.router.js');
 const loginRouter = require('./routes/login.router.js');
 const productRouter = require('./routes/product.router.js')
+
+// api router
+const productApiRouter = require('./api/routes/product.route');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,6 +31,10 @@ app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/user', usersRouter);
 app.use('/product', productRouter);
+
+// api
+app.use('/api/product', productApiRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

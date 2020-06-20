@@ -318,16 +318,16 @@
           <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-6 col-md-6 mb-6 pl-0">
+            <div class="col-xl-4 col-md-4 mb-16">
               <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
+                <div class="card-body pt-1 pb-1">
                   <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Users:</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{users.length}}</div>
+                    <div class="col mr-2 d-flex align-items-center flex-row">
+                      <div class="text-lg font-weight-bold text-gray-800 text-uppercase">Users:</div>
+                      <div class="h5 mb-0 font-weight-bold text-primary ml-2">{{users.length}}</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      <i class="fas fa-user fa-2x text-primary"></i>
                     </div>
                   </div>
                 </div>
@@ -335,21 +335,39 @@
             </div>
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-6 col-md-6 mb-6">
+            <div class="col-xl-4 col-md-4 mb-16">
               <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
+                <div class="card-body pt-1 pb-1">
                   <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Products:</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{products.length}}</div>
+                    <div class="col mr-2 d-flex align-items-center flex-row">
+                      <div class="text-lg font-weight-bold text-gray-800 text-uppercase">Products:</div>
+                      <div class="h5 mb-0 font-weight-bold text-success ml-2">{{products.length}}</div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      <i class="fas fa-tshirt fa-2x text-success"></i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-4 col-md-4 mb-16">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body pt-1 pb-1">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2 d-flex align-items-center flex-row">
+                      <div class="text-lg font-weight-bold text-gray-800 text-uppercase">Categories:</div>
+                      <div class="h5 mb-0 font-weight-bold text-warning ml-2">{{categories.length}}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-warning"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <!-- Content Row -->
 
