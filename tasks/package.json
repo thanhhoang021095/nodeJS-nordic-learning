@@ -17,6 +17,7 @@
     "express-generator": "^4.16.1",
     "inquirer": "^7.1.0",
     "lodash": "^4.17.15",
+    "mongoose": "^5.9.19",
     "xlsx": "^0.16.1"
   },
   "devDependencies": {
